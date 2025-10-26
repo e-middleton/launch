@@ -1,20 +1,37 @@
 
-// function declaration for a function that determines
-// the correct output for a numerical input num, counting from 1 - num (inclusive)
-const yeeHaw = num => {
+
+/**
+ * Function that only accepts a number, 
+ * and returns an array that counts up to that number from 1
+ * but every multiple of 3 is 'yee' and every multiple of 4 is 'haw'
+ * every multiple of both is 'yeehaw'
+ * @param {number} num 
+ * @returns {Array} the numbers and strings resulting from counting up to the input number.
+ */
+const yeeHaw = (num) => {
+
+  if(typeof(num) !== 'number') {
+    throw new Error('Input must be a number');
+  }
+
+  const result = [];
 
   for (let i = 1; i <= num; i++) {
-    let result = "";
+    let temp = '';
 
-    if (i % 3 == 0) {       // divisible by 3
-      result = result.concat("yee");
+    if(i % 3 === 0) {       // divisible by 3
+      temp = temp.concat('yee');
     } 
-    if (i % 4 == 0) {       // divisible by 4
-      result = result.concat("haw");
+    if(i % 4 === 0) {       // divisible by 4
+      temp = temp.concat('haw');
     }
     
-    result ? console.log(result) : console.log(i); // if the string has been assigned, print string result, else print number
+    // checks if the string has been assigned, if not, pushes the number
+    temp ? result.push(temp) : result.push(i); 
   }
+
+  return result;
 }
 
-yeeHaw(12); // test case including numbers, yee, haw, and yeehaw outputs
+
+console.log(yeeHaw('what')); // test case including numbers, yee, haw, and yeehaw outputs
