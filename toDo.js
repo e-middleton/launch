@@ -41,6 +41,11 @@ class ToDoList {
    * @param {string} itemDueDate the date the item must be completed by
    */
   addItem (itemTitle, itemDescription = '', itemDateCreated = '', itemDueDate = '') {
+    // checks for duplicated items
+    if(this._findItem(itemTitle)) {
+      throw new Error(`${ itemTitle } already exists in the ToDoList. No duplicates are permitted.`);
+    }
+
     const item = new ToDoItem(itemTitle, itemDescription, itemDateCreated, itemDueDate);
     this.tasks.push(item); 
   }
@@ -125,8 +130,13 @@ class ToDoList {
   // ***** public methods to reorganize the ordering in the list ****** //
 
 
-  // method to bring a task up in the toDoList
-  // double checks that the item will not be before the array beginning
+
+  /**
+   * method to bring a task up in the ToDoList by one position
+   * If the item is already at the top of the list, it will
+   * not go up again.
+   * @param {string} itemTitle the title of the item being moved, used as an ID
+   */
   bringUp (itemTitle) {
     const temp = this._findItem(itemTitle);
 
@@ -149,7 +159,10 @@ class ToDoList {
     }
   }
 
-  // method to bring an item to the very top of the todo list, index 0
+  /**
+   * Method to bring an item to the very top of the ToDoList
+   * @param {string} itemTitle the title of the item being moved, used as an ID
+   */
   bringToTop (itemTitle) {
     const temp = this._findItem(itemTitle);
     if(temp) {
@@ -163,8 +176,11 @@ class ToDoList {
     }
   }
 
-  // method to send an item down on the toDo list
-  // double checks that the item will not go beyond array end
+  /**
+   * Method to send an item down one position on the ToDoList.
+   * Item will not move beyond the last position of the list.
+   * @param {string} itemTitle 
+   */
   sendDown (itemTitle) {
     const temp = this._findItem(itemTitle);
     if(temp) {
@@ -239,30 +255,21 @@ class ToDoList {
 }
 
 
-// testing
+
+// testing construction
 
 const myList = new ToDoList();
 
-myList.addItem('finish project', 'completion of the launch tasks', 'oct 22', 'oct 29', 'Working on');
-myList.addItem('read book', 'finish reading Piranesi by Susanna Clark', 'Oct 17, 2025', 'NA', 'Finished');
-myList.addItem('read novel', 'finish reading something else by Susanna Clark', 'Oct 17, 2025', 'NA', 'Not Started');
-myList.addItem('sing song', 'finish reading something else by Susanna Clark', 'Oct 17, 2025', 'NA', 'Finished');
+// testing basic add and delete methods, using readList() to view the results
 
-// toDoList.numTasks();
-// toDoList.readList();
-
-//toDoList.deleteItem('read book');
-
-myList.bringToTop('read novel');
-
-// toDoList.numTasks();
+myList.addItem('read book', 'finish reading Piranesi by Susanna Clark', 'Oct 17, 2025', 'NA');
+myList.addItem('learn song', 'learn the piano song by Chopin in book 3', 'Oct 17, 2025', 'NA');
 myList.readList();
 
-myList.sendDown('finish project')
-
+myList.deleteItem('learn song');
 myList.readList();
 
+// testing modification methods
 
-//toDoList.markComplete('read what');
-//toDoList.bringToTop('what?');
-//toDoList.readList();
+myList.markComplete('read book');
+myList.readList();
