@@ -34,4 +34,11 @@ const yeeHaw = (num) => {
 }
 
 
-console.log(yeeHaw('what')); // test case including numbers, yee, haw, and yeehaw outputs
+// test case including numbers, yee, haw, and yeehaw outputs
+console.log(yeeHaw(15)); 
+
+// test case for 0
+console.log(yeeHaw(0));
+
+// test case for invalid input WILL FAIL
+// console.log(yeeHaw());
