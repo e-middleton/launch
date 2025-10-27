@@ -1,7 +1,7 @@
 
 /**
  * Function to determine if a phrase, word, or input (provided as a string) is a palindrome
- * @param {string} input the given input to be checked 
+ * @param {string} input the given input to be checked, not case sensitive
  * @returns {boolean} true or false the input is a palindrome
  */
 const isPalindrome = (input) => {
@@ -40,5 +40,5 @@ console.log(isPalindrome('mom'));
 // numerical palindrome provided as a string
 console.log(isPalindrome('404'));
 
-// test failure, nonpalindrome
+// test for appropriate failure, nonpalindrome
 console.log(isPalindrome('not a palindrome'));

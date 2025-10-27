@@ -2,9 +2,9 @@
 
 /**
  * Function that only accepts a number, 
- * and returns an array that counts up to that number from 1
- * but every multiple of 3 is 'yee' and every multiple of 4 is 'haw'
- * every multiple of both is 'yeehaw'
+ * and returns an array that counts up to that number from 1.
+ * But in the array, every multiple of 3 is 'yee' and every multiple of 4 is 'haw',
+ * and every multiple of both is 'yeehaw'
  * @param {number} num 
  * @returns {Array} the numbers and strings resulting from counting up to the input number.
  */

@@ -15,16 +15,16 @@ class ToDoItem {
 }
 
 /**
- * implementation of a simple toDoList, where the title of an item in the list is used as an ID to access that item
- * and manipulate its position in the list, or any internal information (e.g., status), additional functionality 
- * has been added to output the formatted toDoList.
- * Tabs have been avoided, using 2 spaces instead.
+ * Class representing a simple to-do list, where the title of an item in the list is used as an ID 
+ * to access that item and manipulate its position in the list, or any internal information (e.g., status), 
+ * additional functionality has been added to output the formatted toDoList for testing and development.
+ * Tabs have been avoided, using 2 spaces instead as per ES6 conventions.
  */
 class ToDoList {
 
   // constructor initializes an empty list
   constructor() {
-    // internal array of toDoList item
+    // internal array of ToDoItems
     this.tasks = [];
   }
 
@@ -33,7 +33,8 @@ class ToDoList {
 
   /**
    * Method to add an item to the ToDoList, status is initialized to 'New',
-   * updates to the status are made with markComplete or markInProgress methods
+   * updates to the status are made with markComplete or markInProgress methods.
+   * Default values of empty strings are provided for nonessential item attributes.
    * @param {string} itemTitle the title of the task
    * @param {string} itemDescription a description of the task
    * @param {string} itemDateCreated the date this item is being added
@@ -261,5 +262,15 @@ myList.deleteItem('learn song');
 myList.readList();
 
 // testing modification methods
+
 myList.markComplete('read book');
 myList.readList();
+
+// testing an invalid duplicate item 
+try {
+  // WILL FAIL, DUPLICATE ITEM
+  myList.addItem('read book', '', '', '', ''); 
+} catch (error) {
+  // gives warning about the input being a duplicated item
+  console.error(error);
+}
