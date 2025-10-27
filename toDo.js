@@ -14,7 +14,6 @@ class ToDoItem {
   }
 }
 
-
 /**
  * implementation of a simple toDoList, where the title of an item in the list is used as an ID to access that item
  * and manipulate its position in the list, or any internal information (e.g., status), additional functionality 
@@ -93,7 +92,6 @@ class ToDoList {
     else {
       this._missingItem(itemTitle);
     }
-    
   }
 
   /**
@@ -126,10 +124,7 @@ class ToDoList {
     temp.dateCreated = itemDateCreated;
   }
 
-
   // ***** public methods to reorganize the ordering in the list ****** //
-
-
 
   /**
    * method to bring a task up in the ToDoList by one position
@@ -199,7 +194,6 @@ class ToDoList {
     }
   }
 
-
   // **** public methods to output information about the entire toDoList ***** //
 
   /**
@@ -230,7 +224,6 @@ class ToDoList {
   }
 
   // ***** private methods with _ prefix ***** //
-
   // the underscore in front of the methods indicates private by ES6 convention
 
   /**
@@ -254,8 +247,6 @@ class ToDoList {
   }
 }
 
-
-
 // testing construction
 
 const myList = new ToDoList();
@@ -270,6 +261,5 @@ myList.deleteItem('learn song');
 myList.readList();
 
 // testing modification methods
-
 myList.markComplete('read book');
 myList.readList();
