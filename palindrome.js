@@ -25,7 +25,6 @@ const isPalindrome = (input) => {
   return true;
 }
 
-
 // testing a complicated phrase with whitespace, capitals, and punctuation
 console.log(isPalindrome('a man a plan a canal: Panama'));
 
