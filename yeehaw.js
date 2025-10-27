@@ -33,12 +33,17 @@ const yeeHaw = (num) => {
   return result;
 }
 
-
 // test case including numbers, yee, haw, and yeehaw outputs
 console.log(yeeHaw(15)); 
 
 // test case for 0
 console.log(yeeHaw(0));
 
-// test case for invalid input WILL FAIL
-// console.log(yeeHaw());
+// test case for invalid input
+try {
+  // WILL FAIL, EMPTY INPUT
+  yeeHaw(); 
+} catch (error) {
+  // gives warning about the input not being a number
+  console.error(error);
+}
